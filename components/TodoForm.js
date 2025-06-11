@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 export default function TodoForm({ onAdd }) {
   const [title, setTitle] = useState('')
-  const [category, setCategory] = useState('General')
+  const [category, setCategory] = useState('회사 - 일반')
   const [date, setDate] = useState('')
   const [memo, setMemo] = useState('')
 
@@ -29,12 +29,17 @@ export default function TodoForm({ onAdd }) {
         value={title}
         onChange={e => setTitle(e.target.value)}
       />
-      <input
+      <select
         className="border p-2 w-full"
-        placeholder="Category"
         value={category}
         onChange={e => setCategory(e.target.value)}
-      />
+      >
+        <option value="회사 - 일반">회사 - 일반</option>
+        <option value="회사 - 팀">회사 - 팀</option>
+        <option value="개인">개인</option>
+        <option value="일기">일기</option>
+        <option value="기타">기타</option>
+      </select>
       <input
         type="date"
         className="border p-2 w-full"
